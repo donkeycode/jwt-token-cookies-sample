@@ -1,0 +1,10 @@
+<form>
+  <label for="username">Username</label>
+  <input id="username" name="username" [(ngModel)]="user.email" type="email" required />
+  <br/>
+  <label for="password">password</label>
+  <input id="password" name="password" [(ngModel)]="user.password" type="password" required />
+
+  <input type="submit" (click)="login()" value="Login" />
+
+</form>

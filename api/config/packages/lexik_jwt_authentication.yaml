@@ -1,0 +1,21 @@
+lexik_jwt_authentication:
+    secret_key: '%env(resolve:JWT_SECRET_KEY)%'
+    public_key: '%env(resolve:JWT_PUBLIC_KEY)%'
+    pass_phrase: '%env(JWT_PASSPHRASE)%'
+    token_ttl: 10 
+    token_extractors:
+        authorization_header:
+            enabled: false
+
+        cookie:
+            enabled: true
+    
+    set_cookies:
+        BEARER:
+            lifetime: 2592000 # set same as refresh to get good error message { "code": 401, "message": "Expired JWT Token" }
+            #samesite: none
+            # path: /
+            #domain: #null (null means automatically set by symfony)
+            secure: false # (default to true)
+            # httpOnly: true
+
